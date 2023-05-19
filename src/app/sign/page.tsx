@@ -1,10 +1,9 @@
 "use client";
 
 import logo from "src/images/pokemon-gotta.svg";
-import pokedex from "src/images/pokedex.svg";
-import ash from "src/images/ash.svg";
-import bulbasaur from "src/images/bulbasaur.svg";
 import cover from "@/images/cover.svg";
+
+import Forms from "@/components/_ui/Forms";
 
 import * as Styled from "./styles";
 
@@ -24,11 +23,17 @@ export default function Sign(): JSX.Element {
           src={cover}
           alt="Pokemon Logo"
           fill={true}
-          style={{ objectFit: "cover", objectPosition: "center", zIndex: -1 }}
+          style={{
+            minWidth: "100%",
+            clipPath: "inset(0 52% 0 0)",
+            zIndex: -1,
+          }}
         />
       </Styled.ImageContainer>
 
-      <Styled.FormsContainer></Styled.FormsContainer>
+      <Styled.FormsContainer>
+        <Forms />
+      </Styled.FormsContainer>
     </Styled.SignContainer>
   );
 }
