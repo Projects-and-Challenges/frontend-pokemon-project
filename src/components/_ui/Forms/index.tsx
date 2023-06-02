@@ -1,8 +1,14 @@
+"use client";
+
+import { ROUTER_PATHS } from "@/constants/router";
 import * as React from "react";
 
 import * as Styled from "./styles";
+import { useRouter } from "next/navigation";
 
 export default function Forms(): JSX.Element {
+  const router = useRouter();
+
   return (
     <Styled.FormsContainer>
       <form
@@ -43,7 +49,11 @@ export default function Forms(): JSX.Element {
           />
         </div>
 
-        <button className="signIn" type="submit">
+        <button
+          className="signIn"
+          type="submit"
+          onClick={() => router.push(ROUTER_PATHS.HOME)}
+        >
           Sign In
         </button>
       </form>
