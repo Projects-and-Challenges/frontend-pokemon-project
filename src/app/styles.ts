@@ -7,24 +7,48 @@ export const PageContainer = styled.div`
   min-height: 100vh;
 `;
 
-export const ButtonContainer = styled.div`
+export const PresentationContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  width: 34rem;
+
+  padding: 24px;
+
+  text-align: center;
+
+  & .title-presentation {
+    margin-bottom: 32px;
+  }
+
+  & .paragraph-presentation {
+    margin-bottom: 7rem;
+
+    font-size: 16px;
+    line-height: 32px;
+  }
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
   gap: 32px;
 
-  width: 400px;
-  height: 400px;
+  /* width: 400px;
+  height: 400px; */
 
-  border-radius: 50%;
+  /* border-radius: 50%;
   background: #d9eefb;
-  opacity: 0.75;
+  opacity: 0.75; */
 
-  position: absolute;
-  top: 20%;
+  /* position: absolute;
+  top: 20%; */
 
-  color: black;
+  color: #ffffff;
   font-weight: 700;
 
   & .sign,
@@ -38,10 +62,18 @@ export const ButtonContainer = styled.div`
     width: 150px;
     padding: 16px 48px;
 
-    background-color: #ffffff;
+    background-color: #666666;
+    opacity: 0.7;
 
     border: 0.5px solid #f8f8f8;
     border-radius: 8px;
+  }
+
+  & .sign:hover,
+  .login:hover {
+    background-color: #ffffff;
+
+    color: #666666;
 
     cursor: pointer;
   }
