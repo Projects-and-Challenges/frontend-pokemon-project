@@ -38,7 +38,7 @@ export const ButtonContainer = styled.div`
     width: 150px;
     padding: 16px 48px;
 
-    background-color: #ffffff;
+    background: #ffffff;
 
     border: 0.5px solid #f8f8f8;
     border-radius: 8px;
