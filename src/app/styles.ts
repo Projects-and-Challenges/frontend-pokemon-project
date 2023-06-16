@@ -18,6 +18,7 @@ export const PresentationContainer = styled.div`
   padding: 24px;
 
   text-align: center;
+  color: #ffffff;
 
   & .title-presentation {
     margin-bottom: 32px;
@@ -33,20 +34,9 @@ export const PresentationContainer = styled.div`
 
 export const ButtonContainer = styled.div`
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
   gap: 32px;
-
-  /* width: 400px;
-  height: 400px; */
-
-  /* border-radius: 50%;
-  background: #d9eefb;
-  opacity: 0.75; */
-
-  /* position: absolute;
-  top: 20%; */
 
   color: #ffffff;
   font-weight: 700;
