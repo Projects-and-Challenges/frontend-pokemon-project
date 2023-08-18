@@ -15,26 +15,29 @@ export const HomeContainer = styled.div`
 
 export const PokemonContainer = styled.div`
   display: flex;
+  flex: 0;
   justify-content: space-between;
   align-items: center;
 
-  width: 80%;
-
-  padding: 8.1rem;
+  width: 90%;
+  
+  padding: 1rem;
 `;
 
 export const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-
+  
   width: 30rem;
   height: 35rem;
-
+  
   padding: 32px 24px;
-
+  margin: 1rem;
+  
   border: 1px solid #e0e0e0;
   border-radius: 12px;
   background-color: #efefef;
+  /* margin-right: 24px; */
 
   color: #666666;
   line-height: 24px;
@@ -48,24 +51,30 @@ export const TextContainer = styled.div`
   }
 `;
 
-export const CardsContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-
-  width: 500px;
-  height: 80%;
-
-  margin-right: 8.1rem;
-`;
-
 export const PokemonCardContainer = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
 
   position: relative;
 
+  background: #efefef;
+  width: 120px;
+  height: 150px;
+  margin: 12px;
+
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+
+  p {
+    font-size: 12px;
+    margin-bottom: 24px;
+
+    color: #2c2c2c;
+  }
+
   & .plus-icon {
+    margin-top: 12px;
     position: absolute;
 
     right: 40%;
@@ -77,6 +86,20 @@ export const PokemonCardContainer = styled.div`
     border: 2px solid #efefef;
     border-radius: 50%;
   }
+`;
+
+export const CardsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  width: 500px;
+  height: 80%;
+
+  font-size: 48px;
+
+  margin-right: 8.1rem;
+  margin-left: 4rem;
 `;
 
 export const LogoImage = styled.div`

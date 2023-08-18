@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
+import { useRouter } from 'next/navigation';
 import { z } from "zod";
 import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -26,6 +27,8 @@ const userSchema = z.object({
 type UserFormData = z.infer<typeof userSchema>;
 
 export default function Login(): JSX.Element {
+  const router = useRouter();
+
   const loginForm = useForm<UserFormData>({
     resolver: zodResolver(userSchema),
   });
@@ -39,12 +42,15 @@ export default function Login(): JSX.Element {
     console.log(data)
     const response = await auth.login(data);
 
-    console.log(response)
+    if (response.status === 200) {
+      router.push('/home');
+    } else {
+      alert('E-mail ou senha incorretos!');
+    }
   }
 
   return (
     <Styled.LoginContainer>
-
       <Styled.LogoImage>
         <Link href="/"><Image src={logo} alt="Pokemon Logo" /></Link>
       </Styled.LogoImage>

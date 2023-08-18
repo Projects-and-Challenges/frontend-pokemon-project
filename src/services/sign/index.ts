@@ -25,13 +25,13 @@ async function checkEmail(email: string) {
   }
 }
 
-type createUserProps = {
+type CreateUserProps = {
   username: string;
   email: string;
   password: string;
 };
 
-function createUser({ username, email, password }: createUserProps) {
+function createUser({ username, email, password }: CreateUserProps) {
   async function signUser() {
     const body = {
       username,
