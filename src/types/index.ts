@@ -1,3 +1,5 @@
+import { AxiosResponse } from "axios";
+
 export type User = {
 	id: number;
 	username: string;
@@ -6,7 +8,8 @@ export type User = {
 	image: string | null;
 };
 
-export type LoginUserResponse = User;
+export type LoginProps = Pick<User, 'email' | 'password'>;
+
 
 export type RegisterUserResponse = Pick<User, 'email'> & {
 	code: string;
@@ -38,7 +41,9 @@ export type Pokemon = {
 	}
 }
 
-export type GetPokemonByNameResponse = Pokemon;
+export type GetPokemonByNameProps = Pick<Pokemon, 'name'>;
+
+export type GetAllPokemonProps = (page?: number, offSet?: number) => Promise<GetAllPokemonResponse>;
 
 export type GetAllPokemonResponse = {
 	results: Pick<Pokemon, 'name'>[];

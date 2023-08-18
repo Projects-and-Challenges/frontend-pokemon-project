@@ -11,13 +11,25 @@ import * as Styled from "./styles";
 
 import Image from "next/image";
 import React from "react";
+import { Pokemon } from "@/types";
+import * as services from '@/services';
+import POKES from "@/constants/pokes";
 
 export default function Home(): JSX.Element {
-  let pokemonCards = [];
+  const [pokemonCards, setPokemonCards] = React.useState<Pokemon[]>([]);
 
-  for (let i = 0; i < 6; i++) {
-    pokemonCards[i] = pokemonCardEmpty;
-  }
+  React.useEffect(() => {
+    const loadPoke = async (name: string) => {
+      const response = await services.getPokemonByName({ name })
+      console.log(response);
+      setPokemonCards(prev => [...prev, response.data]);
+    }
+
+    for (let i=0; i<POKES.length; i++) {
+      let name = POKES[i];
+      setTimeout(() => loadPoke(name), 500);
+    }
+  }, []);
 
   return (
     <Styled.HomeContainer>
@@ -45,11 +57,14 @@ export default function Home(): JSX.Element {
           </p>
         </Styled.TextContainer>
         <Styled.CardsContainer>
-          {pokemonCards.map((item, index) => {
+          {pokemonCards.map(item => {
             return (
-              <Styled.PokemonCardContainer key={index}>
-                <Image src={item} alt="Pokemon empty card" />
-                <Image className="plus-icon" src={plusIcon} alt="Add pokemon" />
+              <Styled.PokemonCardContainer key={item.id}>
+                <div>
+                  <Image className="plus-icon" src={plusIcon} alt="Add pokemon" />
+                  <Image style={{ marginTop: '24px' }} src={item.sprites.front_default} alt={pokemonCardEmpty} height={90} width={120} />
+                </div>
+                <p>{item.name}</p>
               </Styled.PokemonCardContainer>
             );
           })}

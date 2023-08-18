@@ -9,7 +9,7 @@ export const register = async ({ username, email, password }: RegisterProps): Pr
 		username,
 		email,
 		password,
-	} satisfies RegisterProps);
+	} as RegisterProps);
 	
 	return response;
 };

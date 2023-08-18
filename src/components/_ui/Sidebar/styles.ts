@@ -1,11 +1,14 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const SideBarContainer = styled.div`
+type SideBarProps = {
+  open: boolean;
+};
+
+export const SideBarContainer = styled.div<SideBarProps>`
   display: flex;
   flex-direction: column;
   gap: 24px;
 
-  width: 180px;
   height: 100vh;
 
   padding: 24px 16px;
@@ -14,6 +17,8 @@ export const SideBarContainer = styled.div`
 
   position: absolute;
   left: 0;
+
+  ${({ open }) => open ? css`width: 180px` : css`width: 60px`}
 
   & .settings {
     position: absolute;
@@ -25,4 +30,9 @@ export const SideBarContainer = styled.div`
     cursor: pointer;
     opacity: 0.7;
   }
+`;
+
+export const Span = styled.span`
+  color: #fff;
+  margin-left: 3px;
 `;
